@@ -6,7 +6,7 @@
  * Consumer repos: customer-portal-ui, customer-service-api
  */
 
-const PremiumCustomerRules = {
+export const PremiumCustomerRules = {
   /**
    * Rule 1: Premium customers receive priority support.
    * Implementation note: Premium customers should be routed to the
@@ -31,8 +31,6 @@ const PremiumCustomerRules = {
   DASHBOARD_HIGHLIGHT: true,
 };
 
-function isPremiumCustomer(customer) {
+export function isPremiumCustomer(customer) {
   return customer && customer.status === 'PREMIUM';
 }
-
-module.exports = { PremiumCustomerRules, isPremiumCustomer };

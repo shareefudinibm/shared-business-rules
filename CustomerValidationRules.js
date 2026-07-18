@@ -6,12 +6,12 @@
  * Consumer repos: customer-portal-ui, customer-service-api
  */
 
-const { VALID_STATUSES } = require('./CustomerStatusRules');
+import { VALID_STATUSES } from './CustomerStatusRules.js';
 
 // Rule 1: Email validation
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validateEmail(email) {
+export function validateEmail(email) {
   if (!email || typeof email !== 'string') {
     return { valid: false, message: 'Email is required.' };
   }
@@ -25,7 +25,7 @@ function validateEmail(email) {
 const NAME_MIN_LENGTH = 2;
 const NAME_MAX_LENGTH = 100;
 
-function validateName(name) {
+export function validateName(name) {
   if (!name || typeof name !== 'string') {
     return { valid: false, message: 'Name is required.' };
   }
@@ -40,7 +40,7 @@ function validateName(name) {
 }
 
 // Rule 3: Customer status validation
-function validateStatus(status) {
+export function validateStatus(status) {
   if (!status) {
     return { valid: false, message: 'Status is required.' };
   }
@@ -53,7 +53,7 @@ function validateStatus(status) {
   return { valid: true, message: null };
 }
 
-function validateCustomer(customer) {
+export function validateCustomer(customer) {
   const nameResult = validateName(customer?.name);
   const emailResult = validateEmail(customer?.email);
   const statusResult = validateStatus(customer?.status);
@@ -64,5 +64,3 @@ function validateCustomer(customer) {
 
   return { valid: errors.length === 0, errors };
 }
-
-module.exports = { validateEmail, validateName, validateStatus, validateCustomer };

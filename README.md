@@ -43,9 +43,9 @@ This repository stores reusable customer validation logic and business constants
 Consumer repositories should implement these rules in their own language/framework but **must not diverge** from the logic defined here.
 
 ```js
-// JavaScript example (customer-portal-ui)
-const { CustomerStatus } = require('./CustomerStatusRules');
-const { validateCustomer } = require('./CustomerValidationRules');
+// JavaScript example (customer-portal-ui) — ES module imports
+import { CustomerStatus } from './CustomerStatusRules.js';
+import { validateCustomer } from './CustomerValidationRules.js';
 
 const result = validateCustomer({ name: 'Alice', email: 'alice@example.com', status: CustomerStatus.ACTIVE });
 // { valid: true, errors: [] }

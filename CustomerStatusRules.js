@@ -6,16 +6,14 @@
  * Consumer repos: customer-portal-ui, customer-service-api
  */
 
-const CustomerStatus = {
+export const CustomerStatus = {
   ACTIVE: 'ACTIVE',
   INACTIVE: 'INACTIVE',
   PREMIUM: 'PREMIUM',
 };
 
-const VALID_STATUSES = Object.values(CustomerStatus);
+export const VALID_STATUSES = Object.values(CustomerStatus);
 
-function isValidStatus(status) {
+export function isValidStatus(status) {
   return VALID_STATUSES.includes(status);
 }
-
-module.exports = { CustomerStatus, VALID_STATUSES, isValidStatus };
